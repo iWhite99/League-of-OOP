@@ -1,0 +1,59 @@
+Marius Valentin Iftimie, 323CD
+
+Homework - League of OOP
+
+Implementation of a MMO-style game using OOP Concepts
+
+Game logic in code:
+-> Main class used for the initialization of the input data and ending the game
+   -> Before the game runs it sorts the players so that the wizards will be at the end
+      of the array
+   -> After the game finishes it sorts back the players so that the heroes will be in the
+      initial order
+-> GameLoader class used for the file reading process of the input data and writing the output
+   -> Used the FileIO API
+-> GameInput class used to keep the necessary information of a game and to run the game
+
+Important classes used:
+-> Package main
+   -> Main -> Used to adapt the input data to the game
+
+-> Package input
+   -> GameInput -> Used to store the information from a game
+                -> Contains a method to run the game
+   -> GameLoader -> Used to read and write the input and output data for a game
+                 -> Contains methods to load and end the game
+
+-> Package utils
+   -> Position -> Used to store two-dimensional coordinates
+               -> Contains equals method in order to compare two coordinates
+   -> Constants -> Various constants used in the code
+
+-> Package moves
+   -> Interface Move -> Extended classes need to be visitable in order to apply the moves
+      -> Extended different types of moves
+   -> MoveFactory -> Factory pattern in order to get a move of the wanted type
+
+-> Package sites
+   -> Interface Site -> Extended classes need to be visitable in order to apply the site amplifiers
+      -> Extended different types of sites
+      -> Method to check the critical strike and extended rounds from the rogue hero
+   -> SiteFactory -> Factory pattern in order to get a site of the wanted type
+
+-> Package abilities
+   -> Abstract class Ability -> Extended classes need to be visitable in order to apply the race amplifiers
+      -> Contains fields for the basic damage types - damage and overtime damage
+      -> Extended different types of abilities
+      -> Each ability has its own stats
+   -> Methods to update the abilities and apply the damage to a hero
+
+-> Package heroes
+   -> Abstract class Hero -> Extended classes need to have visitors in order to apply the movement and the amplifiers
+      -> Contains fields for the stats without the abilities
+      -> Extended different types of heroes with different abilities
+      -> Each hero has its own stats
+   -> Methods to level up, fight, update the stats for a hero, get the hero type and overridden toString method
+      -> toString method used for the output format
+   -> HeroComparator -> Comparator class in order to keep the wizards at the end of the array
+   -> HeroIdComparator -> Comparator class in order to keep the heroes in the initial order from the input
+   -> HeroFactory -> Factory pattern in order to get a hero of the wanted type
